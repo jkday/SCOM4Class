@@ -1,5 +1,5 @@
 
-# Node Serialport <-> Arduino Example
+# Node.js Serialport <-> Arduino Example
 
 Ready made example to start a localhost Node webserver using Express Framework to read & write to Arduino (Uno) Board via serial communication.
 
