@@ -7,13 +7,14 @@
 var app = require('../app');
 var debug = require('debug')('SCOM_4811:server');
 var http = require('http');
-var socketio = require('socket.io'),
+//var socketio = require('socket.io'),
+    const {Server} = require('socket.io')
     url = require("url"),
     SerialPort = require("serialport");
 
 var socketServer;
 var serialPort;
-var portName = 'COM3'; //change this to your Arduino port
+var portName = 'COM5'; //change this to your Arduino port
 var sendData = "";
 
 var verbose = true;
@@ -36,16 +37,19 @@ httpServer.on('error', onError);
 httpServer.on('listening', onListening);
 
 /*Uncomment for serialport functionality
-
+*/
 serialListener(verbose);
 initSocketIO(httpServer, verbose);
-*/
+
 
 /*FUNCTIONS BELOW HERE**************/
 
 
 function initSocketIO(httpServer, verbose) {
-    socketServer = socketio.listen(httpServer);
+    //socketServer = socketio.listen(httpServer);
+    socketServer = new Server(httpServer,{
+        allowEIO3: true // false by default,  needed for node v12.0.0
+      });
     if (verbose == false) {
         socketServer.set('log level', 1); // socket IO verbose off
     }

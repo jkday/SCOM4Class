@@ -84,7 +84,8 @@ function initSocketIO() {
     /*only called once at the loading of the webpage
     calls initPoll, initButton, & initSlider functions
     */
-    iosocket = io.connect(); //io variable is initialized in /socket.io/socket.io.js
+   // iosocket = io.connect(); //io variable is initialized in /socket.io/socket.io.js
+    iosocket = io(); 
     console.log("init Socket via webpage!!");
     iosocket.on('onconnection', function(value) {
         var varInd = parseSerialData(value) //sets values for unoData array
