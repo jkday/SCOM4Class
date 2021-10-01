@@ -66,7 +66,7 @@ void loop() {
      sensorValue = analogRead(analogInPin);   
     // read the analog in value:
     if(prevValue != sensorValue){
-      Serial.print("B_0"); // begin character 
+      Serial.print("B_1"); // begin character 
       Serial.print(sensorValue);  
       Serial.print("E"); // end character
       prevValue = sensorValue;

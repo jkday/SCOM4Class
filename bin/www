@@ -35,9 +35,11 @@ var httpServer = http.createServer(app).listen(port);
 httpServer.on('error', onError);
 httpServer.on('listening', onListening);
 
+/*Uncomment for serialport functionality
+
 serialListener(verbose);
 initSocketIO(httpServer, verbose);
-
+*/
 
 /*FUNCTIONS BELOW HERE**************/
 
